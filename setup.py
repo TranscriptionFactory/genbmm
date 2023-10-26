@@ -11,7 +11,7 @@ if torch.cuda.is_available():
             'matmul_cuda_kernel.cu',
             'banded_cuda_kernel.cu',
                       ],
-                      extra_compile_args={'cxx': ['-w'],
+                      extra_compile_args={'cxx': ['-w -std=c++17],
                                           'nvcc': ['-w']}),
     ]
 
@@ -25,3 +25,4 @@ setup(
     cmdclass={
         'build_ext': BuildExtension
     })
+cxx_args = ['-std=c++14']
